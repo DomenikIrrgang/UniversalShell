@@ -38,7 +38,9 @@ public class UniversalShell {
     }
 
     public void run(CommandFactory factory) {
-        output.writeLine(factory.getWelcomeMessage());
+        if(factory.getWelcomeMessage() != null) {
+            output.writeLine(factory.getWelcomeMessage());
+        }
         while (running) {
             output.write(factory.getInputPrompt());
             String line = input.getNextLine();
