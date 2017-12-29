@@ -31,4 +31,19 @@ public abstract class CommandFactory {
      * @return The welcome message.
      */
     public abstract String getWelcomeMessage();
+
+    /**
+     * String that will be prompted before retrieving input from the user.
+     *
+     * @return String that will be output.
+     */
+    public abstract String getInputPrompt();
+
+    /**
+     * Returns the message that should be displayed when the user inputs an
+     * unknown command.
+     *
+     * @return The unknown command message.
+     */
+    public abstract String getUnknownCommandMessage();
 }

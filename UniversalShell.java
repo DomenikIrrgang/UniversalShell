@@ -16,6 +16,7 @@ public class UniversalShell {
 
     private final Input input;
     private final Output output;
+    
     private boolean running = true;
 
     /**
@@ -39,13 +40,14 @@ public class UniversalShell {
     public void run(CommandFactory factory) {
         output.writeLine(factory.getWelcomeMessage());
         while (running) {
+            output.write(factory.getInputPrompt());
             String line = input.getNextLine();
             Command command = factory.getCommand(line);
             if (command != null) {
                 CommandInvoker invoker = factory.getCommandInvoker();
                 invoker.executeCommand(command);
             } else {
-                output.writeLine("Command not found!");
+                output.writeLine(factory.getUnknownCommandMessage());
             }
         }
     }

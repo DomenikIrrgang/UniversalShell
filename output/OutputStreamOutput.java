@@ -27,8 +27,13 @@ public class OutputStreamOutput extends Output {
 
     @Override
     public void writeLine(String line) {
+        this.write(line + "\n");
+    }
+
+    @Override
+    public void write(String string) {
         try {
-            outputStreamWriter.write(line + "\n");
+            outputStreamWriter.write(string);
             outputStreamWriter.flush();
         } catch (IOException e) {
             System.out.println("Could not write to Output.");
